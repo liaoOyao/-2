@@ -10,6 +10,7 @@ import org.springframework.core.env.Environment;
 
 //@ComponentScan("com.liao","com.test)
 @ComponentScan("com.liao")
+@ComponentScan("com.liao.knowledgesharing.mapper")
 @SpringBootApplication
 public class KnowledgeSharingApplication {
     private static final Logger LOG= LoggerFactory.getLogger(KnowledgeSharingApplication.class);
