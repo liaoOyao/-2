@@ -63,7 +63,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.liao.knowledgesharing.KnowledgeSharingApplication</mainClass>
+                    <mainClass>com.liao.knowledgesharing.config.KnowledgeSharingApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
