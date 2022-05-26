@@ -1,21 +1,35 @@
 package com.liao.knowledgesharing.mapper;
 
 import com.liao.knowledgesharing.domain.Ebook;
+import com.liao.knowledgesharing.domain.EbookExample;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
+
 public interface EbookMapper {
+    long countByExample(EbookExample example);
+
+    int deleteByExample(EbookExample example);
+
     int deleteByPrimaryKey(Long id);
 
     int insert(Ebook record);
 
     int insertSelective(Ebook record);
 
+    List<Ebook> selectByExample(EbookExample example);
+
     Ebook selectByPrimaryKey(Long id);
-    List<Ebook> selectList();
+
+    int updateByExampleSelective(@Param("record") Ebook record, @Param("example") EbookExample example);
+
+    int updateByExample(@Param("record") Ebook record, @Param("example") EbookExample example);
 
     int updateByPrimaryKeySelective(Ebook record);
 
     int updateByPrimaryKey(Ebook record);
+
+    List<Ebook> selectList(String name);
 }

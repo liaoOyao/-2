@@ -1,9 +1,9 @@
-package com.liao.knowledgesharing.domain;
+package com.liao.knowledgesharing.resp;
 
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class Ebook {
+public class EbookResp {
     private Long id;
 
     private String name;
@@ -14,7 +14,7 @@ public class Ebook {
 
     private String description;
 
-    private String cover;
+
 
     private Integer docCount;
 
@@ -62,13 +62,7 @@ public class Ebook {
         this.description = description;
     }
 
-    public String getCover() {
-        return cover;
-    }
 
-    public void setCover(String cover) {
-        this.cover = cover;
-    }
 
     public Integer getDocCount() {
         return docCount;
@@ -105,7 +99,6 @@ public class Ebook {
         sb.append(", category1Id=").append(category1Id);
         sb.append(", category2Id=").append(category2Id);
         sb.append(", description=").append(description);
-        sb.append(", cover=").append(cover);
         sb.append(", docCount=").append(docCount);
         sb.append(", viewCount=").append(viewCount);
         sb.append(", voteCount=").append(voteCount);

@@ -1,5 +1,7 @@
 package com.liao.knowledgesharing.domain;
 
+import org.springframework.stereotype.Repository;
+
 public class Category {
     private Long id;
 

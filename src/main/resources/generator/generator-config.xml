@@ -52,25 +52,25 @@
 
 <!--        <table tableName="demo" domainObjectName="Demo"/>-->
 
-<!--        <table tableName="ebook" domianObjectName="Ebook"/>-->
-<!--        <table tableName="category" domianObjectName="Category"/>-->
-<!--        <table tableName="doc" domianObjectName="Doc"/>-->
-<!--        <table tableName="content" domianObjectName="Content"/>-->
-<!--        <table tableName="user"  domianObjectName="User"/>-->
-<!--        <table tableName="ebook_snapshot" domianObjectName="Ebook_snapshot"/>-->
+        <table tableName="ebook" />
+        <table tableName="category" />
+        <table tableName="doc"/>
+        <table tableName="content" />
+        <table tableName="user"  />
+        <table tableName="ebook_snapshot"/>
 
-                <table tableName="ebook"
-                       enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-                       enableSelectByExample="false" selectByExampleQueryId="false"/>
-                <table tableName="category" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-                       enableSelectByExample="false" selectByExampleQueryId="false"/>
-                <table tableName="doc" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-                       enableSelectByExample="false" selectByExampleQueryId="false"/>
-                <table tableName="content" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-                       enableSelectByExample="false" selectByExampleQueryId="false"/>
-                <table tableName="user"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-                       enableSelectByExample="false" selectByExampleQueryId="false"/>
-                <table tableName="ebook_snapshot" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-                       enableSelectByExample="false" selectByExampleQueryId="false" />
+<!--                <table tableName="ebook"-->
+<!--                       enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--                       enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+<!--                <table tableName="category" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--                       enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+<!--                <table tableName="doc" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--                       enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+<!--                <table tableName="content" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--                       enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+<!--                <table tableName="user"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--                       enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+<!--                <table tableName="ebook_snapshot" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--                       enableSelectByExample="false" selectByExampleQueryId="false" />-->
     </context>
 </generatorConfiguration>
