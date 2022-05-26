@@ -49,12 +49,12 @@
                              targetPackage="com.liao.knowledgesharing.mapper"
                              type="XMLMAPPER"/>
 
-        <!--<table tableName="demo" domainObjectName="Demo"/>-->
-        <!--<table tableName="ebook"/>-->
-        <!--<table tableName="category"/>-->
-        <!--<table tableName="doc"/>-->
-        <!--<table tableName="content"/>-->
-        <!--<table tableName="user"/>-->
+        <table tableName="demo" domainObjectName="Demo"/>
+        <table tableName="ebook"/>
+        <table tableName="category"/>
+        <table tableName="doc"/>
+        <table tableName="content"/>
+        <table tableName="user"/>
         <table tableName="ebook_snapshot"/>
     </context>
 </generatorConfiguration>
