@@ -1,5 +1,6 @@
 package com.liao.knowledgesharing.config;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +11,7 @@ import org.springframework.core.env.Environment;
 
 //@ComponentScan("com.liao","com.test)
 @ComponentScan("com.liao")
-@ComponentScan("com.liao.knowledgesharing.mapper")
+@MapperScan(basePackages = "com.liao.knowledgesharing.mapper")
 @SpringBootApplication
 public class KnowledgeSharingApplication {
     private static final Logger LOG= LoggerFactory.getLogger(KnowledgeSharingApplication.class);

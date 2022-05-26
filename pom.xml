@@ -47,6 +47,15 @@
         </dependency>
     </dependencies>
 
+<!--    <resource>-->
+<!--        <directory>src/main/resources</directory>-->
+<!--        <includes>-->
+<!--            <include>**/*.properties</include>-->
+<!--            <include>**/*.xml</include>-->
+<!--        </includes>-->
+<!--        <filtering>false</filtering>-->
+<!--    </resource>-->
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -56,16 +65,38 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-devtools</artifactId>
-                <optional>true</optional>
-                <scope>true</scope>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-devtools</artifactId>-->
+<!--                <optional>true</optional>-->
+<!--                <scope>true</scope>-->
+<!--            </dependency>-->
+
+
         </dependencies>
     </dependencyManagement>
 
     <build>
+        <!-- 如果不添加此节点mybatis的mapper.xml文件都会被漏掉。 -->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -117,7 +148,10 @@
 <!--                    </dependency>-->
 <!--                </dependencies>-->
             </plugin>
+
         </plugins>
+
     </build>
+
 
 </project>

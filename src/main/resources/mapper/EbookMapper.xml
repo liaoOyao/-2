@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.liao.knowledgesharing.domain.mapper.EbookMapper">
+<mapper namespace="com.liao.knowledgesharing.mapper.EbookMapper">
   <resultMap id="BaseResultMap" type="com.liao.knowledgesharing.domain.Ebook">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -12,97 +12,24 @@
     <result column="view_count" jdbcType="INTEGER" property="viewCount" />
     <result column="vote_count" jdbcType="INTEGER" property="voteCount" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
   <sql id="Base_Column_List">
     id, `name`, category1_id, category2_id, description, cover, doc_count, view_count, 
     vote_count
   </sql>
-  <select id="selectByExample" parameterType="com.liao.knowledgesharing.domain.EbookExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from ebook
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from ebook
     where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <select id="selectList" resultType="com.liao.knowledgesharing.domain.Ebook">
+      select
+      <include refid="Base_Column_List" />
+      from ebook
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from ebook
     where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.liao.knowledgesharing.domain.EbookExample">
-    delete from ebook
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
   </delete>
   <insert id="insert" parameterType="com.liao.knowledgesharing.domain.Ebook">
     insert into ebook (id, `name`, category1_id, 
@@ -175,62 +102,6 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.liao.knowledgesharing.domain.EbookExample" resultType="java.lang.Long">
-    select count(*) from ebook
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update ebook
-    <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=BIGINT},
-      </if>
-      <if test="record.name != null">
-        `name` = #{record.name,jdbcType=VARCHAR},
-      </if>
-      <if test="record.category1Id != null">
-        category1_id = #{record.category1Id,jdbcType=BIGINT},
-      </if>
-      <if test="record.category2Id != null">
-        category2_id = #{record.category2Id,jdbcType=BIGINT},
-      </if>
-      <if test="record.description != null">
-        description = #{record.description,jdbcType=VARCHAR},
-      </if>
-      <if test="record.cover != null">
-        cover = #{record.cover,jdbcType=VARCHAR},
-      </if>
-      <if test="record.docCount != null">
-        doc_count = #{record.docCount,jdbcType=INTEGER},
-      </if>
-      <if test="record.viewCount != null">
-        view_count = #{record.viewCount,jdbcType=INTEGER},
-      </if>
-      <if test="record.voteCount != null">
-        vote_count = #{record.voteCount,jdbcType=INTEGER},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update ebook
-    set id = #{record.id,jdbcType=BIGINT},
-      `name` = #{record.name,jdbcType=VARCHAR},
-      category1_id = #{record.category1Id,jdbcType=BIGINT},
-      category2_id = #{record.category2Id,jdbcType=BIGINT},
-      description = #{record.description,jdbcType=VARCHAR},
-      cover = #{record.cover,jdbcType=VARCHAR},
-      doc_count = #{record.docCount,jdbcType=INTEGER},
-      view_count = #{record.viewCount,jdbcType=INTEGER},
-      vote_count = #{record.voteCount,jdbcType=INTEGER}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.liao.knowledgesharing.domain.Ebook">
     update ebook
     <set>
