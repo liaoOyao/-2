@@ -9,6 +9,7 @@ import com.liao.knowledgesharing.resp.EbookResp;
 import com.liao.knowledgesharing.utils.CopyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 
@@ -21,9 +22,12 @@ public class EbookService {
     {
         EbookExample ebookExample=new EbookExample();
         EbookExample.Criteria criteria = ebookExample.createCriteria();//Criteria相当于where
-        criteria.andNameLike("%"+req.getName()+"%");
+        if(!ObjectUtils.isEmpty(req.getName())){
 
+            criteria.andNameLike("%"+req.getName()+"%");
+        }
         List<Ebook> ebookList = ebookMapper.selectByExample(ebookExample);
+
 //        List<EbookResp> respList=new ArrayList<>();
 //        for (Ebook ebook : ebookList) {
 ////            EbookResp ebookResp = new EbookResp();
