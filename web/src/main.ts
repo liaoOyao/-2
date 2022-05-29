@@ -10,6 +10,8 @@ import axios from "axios";
 axios.defaults.baseURL = process.env.baseURL;
 const app=createApp(App);
 app.use(store).use(router).use(Antd).mount('#app');
+// const modules = import.meta.glob('./dir/*.js')
+
 // 全局使用圖表
 const  icons: any =Icons;
 for (const i in Icons) {
